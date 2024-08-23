@@ -275,18 +275,19 @@ jobs:
         if: ${{ matrix.os_type == 'windows' }}
         uses: msys2/setup-msys2@v2
         with:
-          msystem: ucrt64
+          msystem: clang64
           update: true
           install: >-
             diffutils
             git
             make
             pkg-config
-            mingw-w64-ucrt-x86_64-binutils
-            mingw-w64-ucrt-x86_64-cmake
-            mingw-w64-ucrt-x86_64-gcc
-            mingw-w64-ucrt-x86_64-onevpl
-            mingw-w64-ucrt-x86_64-nasm
+            mingw-w64-clang-x86_64-binutils
+            mingw-w64-clang-x86_64-cmake
+            mingw-w64-clang-x86_64-clang
+            mingw-w64-clang-x86_64-gcc-compat
+            mingw-w64-clang-x86_64-onevpl
+            mingw-w64-clang-x86_64-nasm
 
       - name: Initialize Submodules
         # libx265 has issues when using the recursive method of the first checkout action
